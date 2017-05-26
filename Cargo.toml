@@ -1,0 +1,3 @@
+[workspace]
+members = ["vs_aiwolf_server/vs_aiwolf_simple_io",
+           "vs_aiwolf_client/vs_aiwolf_cui"]

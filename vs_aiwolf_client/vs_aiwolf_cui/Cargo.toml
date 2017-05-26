@@ -1,0 +1,8 @@
+[package]
+name = "vs_aiwolf_cui"
+version = "0.1.0"
+authors = ["Keishi Kawada <Kk-shli@outlook.jp>"]
+workspace = "../.."
+
+[dependencies]
+

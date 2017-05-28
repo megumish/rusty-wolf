@@ -1,5 +1,5 @@
 [package]
-name = "rusty-aiwolf_server_simple_io"
+name = "rusty_aiwolf_server_simple_io"
 version = "0.1.0"
 authors = ["Keishi Kawada <Kk-shli@outlook.jp>"]
 workspace = "../.."

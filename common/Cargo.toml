@@ -1,5 +1,5 @@
 [package]
-name = "rusty-wolf_common"
+name = "rusty_wolf_common"
 version = "0.1.0"
 authors = ["Keishi Kawada <Kk-shli@outlook.jp>"]
 workspace = ".."

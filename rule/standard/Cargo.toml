@@ -1,8 +1,10 @@
 [package]
-name = "rusty-wolf_rule_standard"
+name = "rusty_wolf_rule_standard"
 version = "0.1.0"
 authors = ["Keishi Kawada <Kk-shli@outlook.jp>"]
 workspace = "../.."
 
 [dependencies]
 
+[dependencies.rusty_wolf_common]
+path = "../../common"

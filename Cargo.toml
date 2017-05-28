@@ -1,4 +1,5 @@
 [workspace]
-members = ["rules/standard",
+members = ["common",
+           "rules/standard",
            "protocols/light",
            "servers/simple_io"]

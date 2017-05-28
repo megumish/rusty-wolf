@@ -1,0 +1,10 @@
+[package]
+name = "tests"
+version = "0.1.0"
+authors = ["Keishi Kawada <Kk-shli@outlook.com>"]
+
+[dependencies]
+rusty_wolf_common = { path = "../common" }
+rusty_wolf_rule_standard = { path = "../rule/standard" }
+rusty_wolf_packet_light = { path = "../packet/light" }
+rusty_wolf_server_simple_io = { path = "../server/simple_io" }

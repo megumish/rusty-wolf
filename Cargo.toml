@@ -1,5 +1,6 @@
 [workspace]
 members = ["common",
+           "tests",
            "rule/standard",
            "packet/light",
            "server/simple_io"]

@@ -1,3 +1,4 @@
 [workspace]
-members = ["vs_aiwolf_server/vs_aiwolf_simple_io",
-           "vs_aiwolf_client/vs_aiwolf_cui"]
+members = ["rules/standard",
+           "protocols/light",
+           "servers/simple_io"]

@@ -1,5 +1,5 @@
 [workspace]
 members = ["common",
-           "rules/standard",
-           "protocols/light",
-           "servers/simple_io"]
+           "rule/standard",
+           "protocol/light",
+           "server/simple_io"]

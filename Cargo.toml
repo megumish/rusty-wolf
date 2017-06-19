@@ -2,5 +2,5 @@
 members = ["common",
            "tests",
            "rule/standard",
-           "packet/light",
+           "packet/simple",
            "server/simple_io"]

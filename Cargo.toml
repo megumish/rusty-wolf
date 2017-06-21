@@ -3,4 +3,4 @@ members = ["common",
            "tests",
            "rule/standard",
            "packet/simple",
-           "server/simple_io"]
+           "connection/simple_io"]

@@ -1,6 +1,6 @@
 extern crate rusty_wolf_common;
 extern crate rusty_wolf_rule_standard;
-extern crate rusty_wolf_packet_light;
-extern crate rusty_wolf_server_simple_io;
+extern crate rusty_wolf_packet_simple;
+extern crate rusty_wolf_connection_simple_std;
 
-mod standard_light_simple_io;
+mod standard_simple_simple_std;

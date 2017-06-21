@@ -6,3 +6,5 @@ workspace = "../.."
 
 [dependencies]
 
+[dependencies.rusty_wolf_common]
+path = "../../common"

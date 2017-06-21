@@ -1,5 +1,5 @@
 [package]
-name = "rusty_wolf_connection_simple_io"
+name = "rusty_wolf_connection_simple_std"
 version = "0.1.0"
 authors = ["Keishi Kawada <Kk-shli@outlook.jp>"]
 workspace = "../.."

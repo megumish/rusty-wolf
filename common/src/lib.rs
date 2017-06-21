@@ -13,3 +13,4 @@ pub struct Integration<R: Rule,P: Packet,C: Connection> {
     connection: C
 }
 
+pub struct IntegrationBuilder<R: Rule,

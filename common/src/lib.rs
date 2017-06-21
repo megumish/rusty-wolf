@@ -1,3 +1,6 @@
+pub trait Integration {
+}
+
 pub trait Rule {
 }
 

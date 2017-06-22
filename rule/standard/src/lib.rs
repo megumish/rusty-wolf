@@ -5,8 +5,10 @@ use rusty_wolf_common::Rule;
 pub struct StandardRule {
 }
 
-impl Rule for StandardRule {
-    fn new() -> Self {
+impl Rule for StandardRule {}
+
+impl StandardRule {
+    pub fn new() -> Self {
         StandardRule{}
     }
 }

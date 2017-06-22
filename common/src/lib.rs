@@ -1,26 +1,20 @@
-pub trait Rule {
-    fn new() -> Self;
+pub trait Rule{}
+
+pub trait Packet{}
+
+pub trait Connection{}
+
+pub struct ServerBuilder<'wolf>{
+    connections: Vec<Box<Connection + 'wolf>>
 }
 
-pub trait Packet {
-    fn new() -> Self;
-}
-
-pub trait Connection {
-    fn new() -> Self;
-}
-
-pub struct ServerBuilder {
-    connections: Vec<Box<Connection>>
-}
-
-impl ServerBuilder {
+impl<'wolf> ServerBuilder<'wolf> {
     fn new() -> Self {
         ServerBuilder {
             connections: Vec::new()
         }
     }
-    fn add<C: Connection>(self, connection: C) -> Self {
+    fn add<C: Connection + 'wolf>(mut self, connection: C) -> Self {
         self.connections.push(Box::new(connection));
         ServerBuilder {
             connections: self.connections
@@ -31,13 +25,13 @@ impl ServerBuilder {
 pub struct Server {
 }
 
-pub struct IntegrationBuilder<R: Rule, P: Packet> {
+pub struct IntegrationBuilder<'wolf, R: Rule, P: Packet> {
     rule: Option<R>,
     packet: Option<P>,
-    Server_builder: ServerBuilder
+    server_builder: ServerBuilder<'wolf>
 }
 
-impl<R: Rule, P: Packet> IntegrationBuilder<R,P> {
+impl<'wolf, R: Rule, P: Packet> IntegrationBuilder<'wolf, R, P> {
     pub fn new() -> Self {
         IntegrationBuilder{
             rule: None,
@@ -48,7 +42,7 @@ impl<R: Rule, P: Packet> IntegrationBuilder<R,P> {
 
     pub fn rule(self, rule: R) -> Self {
         IntegrationBuilder{
-            rule: rule,
+            rule: Some(rule),
             packet: self.packet,
             server_builder: self.server_builder
         }
@@ -57,12 +51,12 @@ impl<R: Rule, P: Packet> IntegrationBuilder<R,P> {
     pub fn packet(self, packet: P) -> Self {
         IntegrationBuilder{
             rule: self.rule,
-            packet: packet,
+            packet: Some(packet),
             server_builder: self.server_builder
         }
     }
 
-    pub fn connection<C: Connection>(self, connection: C) -> Self {
+    pub fn connection<C: Connection + 'wolf>(self, connection: C) -> Self {
         let server_builder = self.server_builder.add(connection);
         IntegrationBuilder{
             rule: self.rule,
@@ -71,11 +65,11 @@ impl<R: Rule, P: Packet> IntegrationBuilder<R,P> {
         }
     }
 
-    pub fn build(self) -> Integration<R,P> {
+    pub fn build(self) -> Integration<R, P> {
         //let server = server_builder.build();
         Integration{
-            rule: self.rule,
-            packet: self.packet,
+            rule: self.rule.unwrap(),
+            packet: self.packet.unwrap(),
             //server: server
         }
     }
@@ -85,4 +79,8 @@ pub struct Integration<R: Rule, P: Packet> {
     rule: R,
     packet: P,
     //server: Server
+}
+
+impl<R: Rule, P: Packet> Integration<R, P> {
+    pub fn run(self) {}
 }

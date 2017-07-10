@@ -215,13 +215,14 @@ latex_elements = {
 
 # Latex figure (float) alignment
 #'figure_align': 'htbp',
+'extraclassoptions': 'openany',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'rusty-wolf-prospectus.tex', u'rusty-wolf-prospectus Documentation',
+    (master_doc, 'rusty-wolf-prospectus.tex', u'人狼知能サーバー``rusty-wolf"構想案',
      u'Keishi Kawada', 'manual'),
 ]
 
@@ -281,3 +282,5 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+numfig = True

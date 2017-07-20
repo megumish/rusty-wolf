@@ -11,13 +11,13 @@ Contents:
 .. toctree::
     :maxdepth: 2
     
-    about_aiwolf/lib.rst
+    overview/lib.rst
+    example/lib.rst
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. Indices and tables
+.. ==================
+.. 
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
 

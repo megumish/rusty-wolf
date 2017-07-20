@@ -86,6 +86,10 @@
 
     コード中にotherSideとあるが現在のルールでは、村人側と人狼側しか存在しない。
 
+.. raw:: latex
+
+	\clearpage
+
 ゲームの進行
 -----------
 
@@ -96,4 +100,46 @@
     :scale: 80%
 
     ゲームの進行のフローチャート `第三回大会レギュレーション <http://aiwolf.org/3rd-aiwolf-contest>`_ より
+
+`AIWolfGame.java#L206 <https://github.com/aiwolf/AIWolfServer/blob/0.4.x/src/org/aiwolf/server/AIWolfGame.java#L206>`_
+
+.. code-block:: java
+
+	/**
+	 * Start game
+	 */
+	public void start(){
+		try{
+			init();
+		
+		//		System.out.printf("%d-%d\n", getAliveHumanList().size(), getAliveWolfList().size());
+			while(!isGameFinished()){
+				consoleLog();
+		
+				day();
+				night();
+				if(gameLogger != null){
+					gameLogger.flush();
+				}
+			}
+			consoleLog();
+			finish();
+		
+			if(isShowConsoleLog){
+				System.out.println("Winner:"+getWinner());
+			}
+		//		for(Agent agent:gameData.getAgentList()){
+		//			GameInfo gameInfo = gameData.getGameInfo(agent);
+		////			System.out.println(JSON.encode(gameInfo));
+		//			break;
+		//		}
+		}catch(LostClientException e){
+			if(gameLogger != null){
+				gameLogger.log("Lost Connection of "+e.getAgent());
+			}
+			throw e;
+		}
+	}
+
+またクライアント側のプログラムは各プレイヤーに対してそれぞれの関数を呼び出す前にupdate()を呼び出す。このupdate()の引数GameInfoによりプレイヤーは進行中の状況が与えられる。
 
